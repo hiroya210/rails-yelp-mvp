@@ -1,5 +1,8 @@
-<h1>List of Restaurants</h1>
-<%= link_to "Add new restaurant", new_restaurant_path %>
+  <div class="navbar">
+    <%= link_to "Add new restaurant", new_restaurant_path %>
+  </div>
+<h1>Restaurants near you</h1>
+
 <div class="restaurants">
     <% @restaurants.each do |restaurant| %>
     <div class="card mb-3">

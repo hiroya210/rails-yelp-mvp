@@ -18,6 +18,11 @@
     margin: 0 auto;
 }
 
+.navbar{
+    display: flex;
+    justify-content: end;
+}
+
 .restaurants{
     display: flex;
     flex-wrap: wrap;

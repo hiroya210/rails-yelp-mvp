@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
     @restaurant.reviews.each do |review| 
       @average_rating << review.rating
     end
-    @average_rating = @average_rating.sum / @average_rating.length
+    @average_rating = @average_rating.sum / (@average_rating.length == 0 ? 1 :  @average_rating.length)
   end
 
   def new

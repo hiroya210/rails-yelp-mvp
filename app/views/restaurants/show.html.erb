@@ -1,7 +1,7 @@
 <div class="banner">
   <div class="header">
     <h2><%= @restaurant.name %></h2>
-    <p><%= "⭐" * @average_rating %></p>
+    <p><%= "★" * @average_rating %><%= "☆" * (5- @average_rating)  %></p>
     <p><%= @restaurant.address %></p>
     <p><%= @restaurant.phone_number %></p>
   </div>
@@ -12,7 +12,7 @@
 </div>
 <ul class="list-group">
   <% @restaurant.reviews.each do |review| %>
-    <li class="list-group-item"><%= "⭐" * (review.rating) %><br><%= review.content %></li>
+    <li class="list-group-item"><%= "★" * (review.rating) %><%="☆"* (5 - (review.rating)) %><br><%= review.content %></li>
   <% end %>
 </ul>
 
