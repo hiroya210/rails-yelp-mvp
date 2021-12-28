@@ -12,6 +12,39 @@
 @import "components/index";
 @import "pages/index";
 
+.banner-home{
+    background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), image-url('restaurant.jpg');
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header-home h1, .header-home p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 1px 1px 1px black;
+    z-index: 10;
+}
+
+.header-home h1{
+    font-weight: bolder;
+    font-size: 48px;
+}
+
+.header-home a{
+    border-radius: 20px;
+}
 
 .container{
     width: 1080px;
@@ -34,9 +67,9 @@
     box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.226);
 }
 
-h1{
+h2{
     text-align: center;
-    padding: 16px
+    padding: 16px 0px;
 }
 
 .banner{
@@ -47,7 +80,7 @@ h1{
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    background-image: url("https://loremflickr.com/1400/800/food");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url("https://loremflickr.com/1400/800/pizza");
     background-size: cover;
     object-fit: contain;
     background-repeat: no-repeat;
