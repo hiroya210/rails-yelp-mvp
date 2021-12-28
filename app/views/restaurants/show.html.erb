@@ -1,0 +1,19 @@
+<div class="banner">
+  <div class="header">
+    <h2><%= @restaurant.name %></h2>
+    <p><%= "⭐" * @average_rating %></p>
+    <p><%= @restaurant.address %></p>
+    <p><%= @restaurant.phone_number %></p>
+  </div>
+</div>
+<div style="padding: 16px;">
+  <h2>Review Highlights</h2>
+  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %>
+</div>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= "⭐" * (review.rating) %><br><%= review.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to main", restaurants_path %>

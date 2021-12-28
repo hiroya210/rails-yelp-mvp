@@ -1,0 +1,15 @@
+<h1>List of Restaurants</h1>
+<%= link_to "Add new restaurant", new_restaurant_path %>
+<div class="restaurants">
+    <% @restaurants.each do |restaurant| %>
+    <div class="card mb-3">
+        <div class="d-flex" style="width: 480px">
+          <%= image_tag("https://loremflickr.com/160/160/#{["pizza", "sushi", "waffle", "pasta", "sashimi", "bread", "sandwich"].sample}")%>
+            <div class="card-body">
+              <h5><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
+              <p><%= restaurant.address %></p>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
