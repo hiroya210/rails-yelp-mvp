@@ -1,5 +1,5 @@
   <div class="navbar">
-    <%= link_to "Top restaurants", restaurants_top_path, class: "btn btn-light" %>
+    <%= link_to "Top restaurants", restaurants_top_path, class: "btn btn-success" %>
     <h1>Restaurants near you</h1>
     <%= link_to "Add new restaurant", new_restaurant_path, class: "btn btn-primary" %>
   </div>
@@ -7,18 +7,30 @@
 <div class="restaurants">
     <% @restaurants.each do |restaurant| %>
     <div class="card mb-3">
-        <div class="d-flex" style="width: 480px">
-          <%= image_tag("https://loremflickr.com/160/160/#{["carbonara", "desserts","beer","vodka", "salad","pizza", "sushi", "waffle", "pasta", "sashimi", "bread", "sandwich"].sample}/all")%>
+        <div class="d-flex" style="width: 540px;">
+          <%= image_tag("https://loremflickr.com/180/100/#{["carbonara", "desserts","beer","vodka", "salad","pizza", "sushi", "waffle", "pasta", "sashimi", "bread", "sandwich"].sample}/all")%>
             <div class="card-body">
-              <% average_rating = @average_rating[restaurant.id].to_i   %>
-              <h5><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
-              <% average_rating.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-               <% (5 - average_rating).times do %>
-                <i class="far fa-star"></i>
-              <% end %>
-              <p><%= restaurant.address %></p>
+              <% average_rating = @average_rating[restaurant.id].to_i %>
+              <% review = restaurant.reviews.first.content %>
+              <div>
+                <h5><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
+                <div style="padding: 4px 0">
+                  <% average_rating.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - average_rating).times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
+                <p><%= restaurant.address %></p>
+                <p style="opacity: 0.6"><i class="far fa-comment-alt"></i>
+                <% if review.split.length > 10 %>
+                <em>"<%= review.split.first(10).join(" ") %>..."</em>
+                <% else %>
+                <em><%= review %></em>
+                <% end %>
+                <strong><%= link_to "more", restaurant_path(restaurant) %></strong></p>
             </div>
         </div>
     </div>

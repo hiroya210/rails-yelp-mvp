@@ -4,7 +4,7 @@ puts "Creating restaurants"
 50.times do 
     restaurant = Restaurant.new(
         name: Faker::Restaurant.name,
-        address: Faker::Address.full_address, 
+        address: Faker::Address.street_name,
         phone_number: Faker::PhoneNumber.cell_phone, 
         category: ["chinese", "italian", "japanese", "french", "belgian"].sample
     )

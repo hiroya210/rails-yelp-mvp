@@ -1,11 +1,13 @@
-<h2>Add new restaurant</h2>
+<div class="box">
+    <h2>Add new restaurant</h2>
 
-<%= simple_form_for (@restaurant) do |f| %>
-<%= f.input :name %>
-<%= f.input :address %>
-<%= f.input :phone_number %>
-<%= f.input :category, :collection => ["chinese", "italian", "japanese", "french", "belgian"]  %>
-<%= f.submit "Add Restaurant", class: "btn btn-primary" %>
-<% end %>
+    <%= simple_form_for (@restaurant) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category, :collection => ["chinese", "italian", "japanese", "french", "belgian"]  %>
+    <%= f.submit "Add Restaurant", class: "btn btn-primary" %>
+    <% end %>
 
-<%= link_to "Back to Main page", restaurants_path, class: "btn btn-dark", style: "margin-top: 16px;" %>
+    <%= link_to "Back to Main page", restaurants_path, class: "btn btn-dark", style: "margin-top: 16px;" %>
+</div>

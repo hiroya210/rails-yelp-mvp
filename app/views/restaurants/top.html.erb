@@ -7,20 +7,33 @@
 <div class="restaurants">
   <% @restaurants.each do |restaurant| %>
     <% average_rating = @average_rating[restaurant.id].to_i   %>
+    <% review = restaurant.reviews.first.content %>
       <% if average_rating >= 4 %>
         <div class="card mb-3">
 
         <div class="d-flex" style="width: 480px">
-          <%= image_tag("https://loremflickr.com/160/160/#{["carbonara", "desserts","beer","vodka", "salad","pizza", "sushi", "waffle", "pasta", "sashimi", "bread", "sandwich"].sample}/all")%>
+          <%= image_tag("https://loremflickr.com/180/180/#{["carbonara", "desserts","beer","vodka", "salad","pizza", "sushi", "waffle", "pasta", "sashimi", "bread", "sandwich"].sample}/all") %>
             <div class="card-body">
-              <h5><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
-              <% average_rating.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-               <% (5 - average_rating).times do %>
-                <i class="far fa-star"></i>
-              <% end %>
+              <div style="display: flex; justify-content: space-between">
+                <h5><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
+                <div>
+                  <% average_rating.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - average_rating).times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
               <p><%= restaurant.address %></p>
+              <p style="opacity: 0.6"><i class="far fa-comment-alt"></i>
+                <% if review.split.length > 10 %>
+                    <em>"<%= review.split.first(10).join(" ") %>..."</em>
+                <% else %>
+                    <em><%= review %></em>
+                <% end %>
+                    <strong><%= link_to "more", restaurant_path(restaurant) %></strong>
+              </p>
             </div>
         </div>
       </div>

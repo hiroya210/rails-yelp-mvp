@@ -47,7 +47,7 @@
 }
 
 .container{
-    width: 1080px;
+    width: 1200px;
     margin: 0 auto;
 }
 
@@ -109,4 +109,25 @@ h3{
 
 .header p {
     font-size: 20px;
+}
+
+.box{
+    width: 500px;
+    margin: 0 auto;
+    background-color: rgb(255, 251, 236);
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.review-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+#review .form-control{
+    width: 75px;
+}
+
+.fa-star:before {
+    color: rgb(209, 209, 68);
 }
