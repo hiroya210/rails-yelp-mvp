@@ -1,7 +1,12 @@
 <div class="banner">
   <div class="header">
-    <h2><%= @restaurant.name %></h2>
-    <p><%= "★" * @average_rating %><%= "☆" * (5- @average_rating)  %></p>
+    <h3><%= @restaurant.name %></h3>
+     <% @average_rating.times do %>
+       <i class="fas fa-star"></i>
+     <% end %>
+     <% (5 - @average_rating).times do %>
+       <i class="far fa-star"></i>
+     <% end %>
     <p><%= @restaurant.address %></p>
     <p><%= @restaurant.phone_number %></p>
   </div>

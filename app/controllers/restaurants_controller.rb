@@ -1,13 +1,15 @@
 class RestaurantsController < ApplicationController
 
     before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
+    before_action :get_average_ratings, only: [:index, :top]
 
   def home
   end
 
+  def top
+  end
+
   def index
-    @reviews = []
-    @restaurants = Restaurant.all
   end
 
   def show
@@ -51,6 +53,14 @@ class RestaurantsController < ApplicationController
 
   def find_restaurant
     @restaurant = Restaurant.find(params[:id])
+  end
+
+  def get_average_ratings
+    @restaurants = Restaurant.all
+    @average_rating = Review.where(restaurant_id: @restaurants)
+    .group(:restaurant_id)
+    .average(:rating)
+    .transform_values { |rating| rating.round(2) }
   end
 
 end

@@ -1,16 +1,18 @@
   <div class="navbar">
-    <%= link_to "Top restaurants", restaurants_top_path, class: "btn btn-light" %>
-    <h1>Restaurants near you</h1>
+    <%= link_to "Back to Main", restaurants_path, class: "btn btn-dark" %>    
+    <h1>Top Restaurants</h1>
     <%= link_to "Add new restaurant", new_restaurant_path, class: "btn btn-primary" %>
   </div>
 
 <div class="restaurants">
-    <% @restaurants.each do |restaurant| %>
-    <div class="card mb-3">
+  <% @restaurants.each do |restaurant| %>
+    <% average_rating = @average_rating[restaurant.id].to_i   %>
+      <% if average_rating >= 4 %>
+        <div class="card mb-3">
+
         <div class="d-flex" style="width: 480px">
           <%= image_tag("https://loremflickr.com/160/160/#{["carbonara", "desserts","beer","vodka", "salad","pizza", "sushi", "waffle", "pasta", "sashimi", "bread", "sandwich"].sample}/all")%>
             <div class="card-body">
-              <% average_rating = @average_rating[restaurant.id].to_i   %>
               <h5><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
               <% average_rating.times do %>
                 <i class="fas fa-star"></i>
@@ -21,6 +23,7 @@
               <p><%= restaurant.address %></p>
             </div>
         </div>
-    </div>
-    <% end %>
+      </div>
+      <% end %>
+  <% end %>
 </div>
