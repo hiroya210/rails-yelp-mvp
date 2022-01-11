@@ -1,0 +1,7 @@
+<%= simple_form_for [ restaurant, review ] do |f| %>
+  <%= f.input :content, label: 'Review content', placeholder: "Review...", :input_html => {:style=> 'resize: none; height: 150px'} %>
+  <div class="review-box">
+    <%= f.input :rating, :collection => (0..5), default: "1" %>
+    <%= f.submit "Submit review" , class: "btn btn-primary"%>
+  </div>
+<% end %>

@@ -1,5 +1,5 @@
   <div class="navbar">
-    <%= link_to "Top restaurants", restaurants_top_path, class: "btn btn-success" %>
+    <%= link_to "Top restaurants", top_restaurants_path, class: "btn btn-success" %>
     <h1>Restaurants near you</h1>
     <%= link_to "Add new restaurant", new_restaurant_path, class: "btn btn-primary" %>
   </div>
@@ -8,7 +8,7 @@
     <% @restaurants.each do |restaurant| %>
     <div class="card mb-3">
         <div class="d-flex" style="width: 540px;">
-          <%= image_tag("https://loremflickr.com/180/100/#{["carbonara", "desserts","beer","vodka", "salad","pizza", "sushi", "waffle", "pasta", "sashimi", "bread", "sandwich"].sample}/all")%>
+          <%= image_tag("https://loremflickr.com/240/240/#{["carbonara", "desserts","beer","vodka", "salad","pizza", "sushi", "waffle", "pasta", "sashimi", "bread", "sandwich"].sample}/all")%>
             <div class="card-body">
               <% average_rating = @average_rating[restaurant.id].to_i %>
               <% review = restaurant.reviews.first.content %>

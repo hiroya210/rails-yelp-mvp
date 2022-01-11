@@ -13,6 +13,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @average_rating = []
     @restaurant.reviews.each do |review| 
       @average_rating << review.rating

@@ -30,7 +30,7 @@
                 <% if review.split.length > 10 %>
                     <em>"<%= review.split.first(10).join(" ") %>..."</em>
                 <% else %>
-                    <em><%= review %></em>
+                    <em>"<%= review %>"</em>
                 <% end %>
                     <strong><%= link_to "more", restaurant_path(restaurant) %></strong>
               </p>

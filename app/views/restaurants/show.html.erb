@@ -13,21 +13,30 @@
 </div>
 <div style="padding: 16px;">
   <h2>Review Highlights</h2>
-  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %>
 </div>
-<ul class="list-group">
-  <% @restaurant.reviews.each do |review| %>
-    <li class="list-group-item">
-       <% review.rating.times do %>
-       <i class="fas fa-star"></i>
-     <% end %>
-     <% (5 - review.rating).times do %>
-       <i class="far fa-star"></i>
-     <% end %>
-     <br>
-      <%= review.content %>
-    </li>
-  <% end %>
-</ul>
+
+<div class="d-flex">
+  <div class="row">
+   <div class="col-12">
+    <ul class="list-group">
+      <% @restaurant.reviews.each do |review| %>
+        <li class="list-group-item">
+          <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+        <br>
+          <%= review.content %>
+        </li>
+      <% end %>
+    </ul>
+   </div>
+  </div>
+  <div class="col-6">
+    <%= render "reviews/form", restaurant: @restaurant, review: @review %>
+  </div>
+</div>
 
 <%= link_to "Back to main", restaurants_path, class: "btn btn-primary", style: "margin: 16px 0px" %>
